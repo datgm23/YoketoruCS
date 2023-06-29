@@ -35,6 +35,13 @@
             labelGameover = new Label();
             buttonTitle = new Button();
             labelClear = new Label();
+            labelScore = new Label();
+            labelHighScore = new Label();
+            tempPlayer = new Label();
+            labelTimer = new Label();
+            labelCopyright = new Label();
+            tempObstacle = new Label();
+            tempItem = new Label();
             SuspendLayout();
             // 
             // timer1
@@ -95,11 +102,88 @@
             labelClear.TabIndex = 4;
             labelClear.Text = "CLEAR!!";
             // 
+            // labelScore
+            // 
+            labelScore.AutoSize = true;
+            labelScore.Font = new Font("Consolas", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            labelScore.Location = new Point(260, -2);
+            labelScore.Name = "labelScore";
+            labelScore.Size = new Size(107, 37);
+            labelScore.TabIndex = 5;
+            labelScore.Text = "00000";
+            // 
+            // labelHighScore
+            // 
+            labelHighScore.AutoSize = true;
+            labelHighScore.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelHighScore.Location = new Point(231, 35);
+            labelHighScore.Name = "labelHighScore";
+            labelHighScore.Size = new Size(162, 19);
+            labelHighScore.TabIndex = 6;
+            labelHighScore.Text = "High Score: 00000";
+            // 
+            // tempPlayer
+            // 
+            tempPlayer.AutoSize = true;
+            tempPlayer.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            tempPlayer.Location = new Point(58, 162);
+            tempPlayer.Name = "tempPlayer";
+            tempPlayer.Size = new Size(49, 21);
+            tempPlayer.TabIndex = 7;
+            tempPlayer.Text = "(・ω・)";
+            // 
+            // labelTimer
+            // 
+            labelTimer.AutoSize = true;
+            labelTimer.Font = new Font("Consolas", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            labelTimer.Location = new Point(541, 315);
+            labelTimer.Name = "labelTimer";
+            labelTimer.Size = new Size(71, 37);
+            labelTimer.TabIndex = 8;
+            labelTimer.Text = "000";
+            // 
+            // labelCopyright
+            // 
+            labelCopyright.AutoSize = true;
+            labelCopyright.Location = new Point(263, 332);
+            labelCopyright.Name = "labelCopyright";
+            labelCopyright.Size = new Size(99, 15);
+            labelCopyright.TabIndex = 9;
+            labelCopyright.Text = "(C) 2023 たなかゆう";
+            // 
+            // tempObstacle
+            // 
+            tempObstacle.AutoSize = true;
+            tempObstacle.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            tempObstacle.Location = new Point(46, 236);
+            tempObstacle.Name = "tempObstacle";
+            tempObstacle.Size = new Size(26, 21);
+            tempObstacle.TabIndex = 10;
+            tempObstacle.Text = "◆";
+            // 
+            // tempItem
+            // 
+            tempItem.AutoSize = true;
+            tempItem.Font = new Font("Yu Gothic UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            tempItem.ForeColor = Color.FromArgb(255, 128, 0);
+            tempItem.Location = new Point(142, 250);
+            tempItem.Name = "tempItem";
+            tempItem.Size = new Size(35, 30);
+            tempItem.TabIndex = 11;
+            tempItem.Text = "★";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(624, 361);
+            Controls.Add(tempItem);
+            Controls.Add(tempObstacle);
+            Controls.Add(labelCopyright);
+            Controls.Add(labelTimer);
+            Controls.Add(tempPlayer);
+            Controls.Add(labelHighScore);
+            Controls.Add(labelScore);
             Controls.Add(labelClear);
             Controls.Add(buttonTitle);
             Controls.Add(labelGameover);
@@ -120,5 +204,12 @@
         private Label labelGameover;
         private Button buttonTitle;
         private Label labelClear;
+        private Label labelScore;
+        private Label labelHighScore;
+        private Label tempPlayer;
+        private Label labelTimer;
+        private Label labelCopyright;
+        private Label tempObstacle;
+        private Label tempItem;
     }
 }

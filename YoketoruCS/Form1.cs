@@ -51,11 +51,16 @@ namespace YoketoruCS
                     labelGameover.Visible = false;
                     buttonTitle.Visible = false;
                     labelClear.Visible = false;
+                    labelHighScore.Visible = true;
+                    tempPlayer.Visible = false;
+                    labelCopyright.Visible = true;
                     break;
 
                 case State.Game:
                     labelTitle.Visible = false;
                     buttonStart.Visible = false;
+                    labelHighScore.Visible = false;
+                    labelCopyright.Visible = false;
                     break;
 
                 case State.Gameover:
