@@ -53,6 +53,8 @@ namespace YoketoruCS
                     labelClear.Visible = false;
                     labelHighScore.Visible = true;
                     tempPlayer.Visible = false;
+                    tempObstacle.Visible = false;
+                    tempItem.Visible = false;
                     labelCopyright.Visible = true;
                     break;
 
@@ -66,11 +68,13 @@ namespace YoketoruCS
                 case State.Gameover:
                     labelGameover.Visible = true;
                     buttonTitle.Visible = true;
+                    labelHighScore.Visible = true;
                     break;
 
                 case State.Clear:
                     labelClear.Visible = true;
                     buttonTitle.Visible = true;
+                    labelHighScore.Visible = true;
                     break;
             }
         }
