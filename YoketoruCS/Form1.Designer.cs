@@ -28,12 +28,97 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            components = new System.ComponentModel.Container();
+            timer1 = new System.Windows.Forms.Timer(components);
+            labelTitle = new Label();
+            buttonStart = new Button();
+            labelGameover = new Label();
+            buttonTitle = new Button();
+            labelClear = new Label();
+            SuspendLayout();
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 50;
+            timer1.Tick += timer1_Tick;
+            // 
+            // labelTitle
+            // 
+            labelTitle.AutoSize = true;
+            labelTitle.Font = new Font("Yu Gothic UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            labelTitle.Location = new Point(236, 67);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Size = new Size(153, 45);
+            labelTitle.TabIndex = 0;
+            labelTitle.Text = "よけとるCS";
+            // 
+            // buttonStart
+            // 
+            buttonStart.Font = new Font("Yu Gothic UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonStart.Location = new Point(224, 167);
+            buttonStart.Name = "buttonStart";
+            buttonStart.Size = new Size(176, 50);
+            buttonStart.TabIndex = 1;
+            buttonStart.Text = "スタート!!";
+            buttonStart.UseVisualStyleBackColor = true;
+            buttonStart.Click += buttonStart_Click;
+            // 
+            // labelGameover
+            // 
+            labelGameover.AutoSize = true;
+            labelGameover.Font = new Font("Yu Gothic UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            labelGameover.Location = new Point(214, 138);
+            labelGameover.Name = "labelGameover";
+            labelGameover.Size = new Size(196, 45);
+            labelGameover.TabIndex = 2;
+            labelGameover.Text = "GAME OVER";
+            // 
+            // buttonTitle
+            // 
+            buttonTitle.Font = new Font("Yu Gothic UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonTitle.Location = new Point(224, 250);
+            buttonTitle.Name = "buttonTitle";
+            buttonTitle.Size = new Size(176, 45);
+            buttonTitle.TabIndex = 3;
+            buttonTitle.Text = "タイトルへ";
+            buttonTitle.UseVisualStyleBackColor = true;
+            buttonTitle.Click += buttonTitle_Click;
+            // 
+            // labelClear
+            // 
+            labelClear.AutoSize = true;
+            labelClear.Font = new Font("Yu Gothic UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            labelClear.Location = new Point(248, 138);
+            labelClear.Name = "labelClear";
+            labelClear.Size = new Size(129, 45);
+            labelClear.TabIndex = 4;
+            labelClear.Text = "CLEAR!!";
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(624, 361);
+            Controls.Add(labelClear);
+            Controls.Add(buttonTitle);
+            Controls.Add(labelGameover);
+            Controls.Add(buttonStart);
+            Controls.Add(labelTitle);
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer timer1;
+        private Label labelTitle;
+        private Button buttonStart;
+        private Label labelGameover;
+        private Button buttonTitle;
+        private Label labelClear;
     }
 }
