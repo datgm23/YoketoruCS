@@ -20,6 +20,11 @@ namespace YoketoruCS
         State nextState = State.Title;
         State currentState = State.None;
 
+        int score;
+        int timer;
+        int highScore = 100;
+        int StartTimer => 200;
+
         public Form1()
         {
             InitializeComponent();
@@ -63,6 +68,8 @@ namespace YoketoruCS
                     buttonStart.Visible = false;
                     labelHighScore.Visible = false;
                     labelCopyright.Visible = false;
+                    score = 0;
+                    timer = StartTimer;
                     break;
 
                 case State.Gameover:
