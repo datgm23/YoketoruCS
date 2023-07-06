@@ -183,6 +183,23 @@ namespace YoketoruCS
             {
                 chrLabels[i].Left += vx[i];
                 chrLabels[i].Top += vy[i];
+
+                if (chrLabels[i].Left < 0)
+                {
+                    vx[i] = Math.Abs(vx[i]);
+                }
+                else if (chrLabels[i].Right > ClientSize.Width)
+                {
+                    vx[i] = -Math.Abs(vx[i]);
+                }
+                if (chrLabels[i].Top < 0)
+                {
+                    vy[i] = Math.Abs(vy[i]);
+                }
+                else if (chrLabels[i].Bottom > ClientSize.Height)
+                {
+                    vy[i] = -Math.Abs(vy[i]);
+                }
             }
         }
     }
