@@ -118,6 +118,7 @@ namespace YoketoruCS
                         vx[i] = random.Next(-SpeedMax, SpeedMax + 1);
                         vy[i] = random.Next(-SpeedMax, SpeedMax + 1);
                     }
+                    RandomObstacleAndItemPosition();
                     break;
 
                 case State.Gameover:
@@ -200,6 +201,15 @@ namespace YoketoruCS
                 {
                     vy[i] = -Math.Abs(vy[i]);
                 }
+            }
+        }
+
+        void RandomObstacleAndItemPosition()
+        {
+            for (int i=ObstacleIndex; i < chrLabels.Length; i++)
+            {
+                chrLabels[i].Left = random.Next(ClientSize.Width - chrLabels[i].Width);
+                chrLabels[i].Top = random.Next(ClientSize.Height - chrLabels[i].Height);
             }
         }
     }
