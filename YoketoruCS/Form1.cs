@@ -156,6 +156,7 @@ namespace YoketoruCS
                 nextState = State.Clear;
             }
 
+            UpdateTimer();
             UpdatePlayer();
             UpdateObstacleAndItem();
         }
@@ -211,6 +212,12 @@ namespace YoketoruCS
                 chrLabels[i].Left = random.Next(ClientSize.Width - chrLabels[i].Width);
                 chrLabels[i].Top = random.Next(ClientSize.Height - chrLabels[i].Height);
             }
+        }
+
+        void UpdateTimer()
+        {
+            timer--;
+            labelTimer.Text = $"{timer:000}";
         }
     }
 }
