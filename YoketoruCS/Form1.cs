@@ -16,6 +16,13 @@ namespace YoketoruCS
         static int LabelMax => ItemIndex + ItemMax;
         Label[] chrLabels = new Label[LabelMax];
         int itemCount;
+
+        int[] vx = new int[LabelMax];
+        int[] vy = new int[LabelMax];
+
+        static Random random = new Random();
+
+        static int SpeedMax = 10;
         
         // —ñ‹“Žqenum
         enum State
@@ -106,6 +113,11 @@ namespace YoketoruCS
                     labelCopyright.Visible = false;
                     score = 0;
                     timer = StartTimer;
+                    for (int i = ObstacleIndex; i < vx.Length; i++)
+                    {
+                        vx[i] = random.Next(-SpeedMax, SpeedMax + 1);
+                        vy[i] = random.Next(-SpeedMax, SpeedMax + 1);
+                    }
                     break;
 
                 case State.Gameover:
@@ -144,6 +156,7 @@ namespace YoketoruCS
             }
 
             UpdatePlayer();
+            UpdateObstacleAndItem();
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
@@ -162,6 +175,15 @@ namespace YoketoruCS
 
             chrLabels[PlayerIndex].Left = mpos.X - chrLabels[PlayerIndex].Width / 2;
             chrLabels[PlayerIndex].Top = mpos.Y - chrLabels[PlayerIndex].Height / 2;
+        }
+
+        void UpdateObstacleAndItem()
+        {
+            for (int i = ObstacleIndex; i < chrLabels.Length; i++)
+            {
+                chrLabels[i].Left += vx[i];
+                chrLabels[i].Top += vy[i];
+            }
         }
     }
 }
