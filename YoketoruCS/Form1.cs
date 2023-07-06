@@ -142,6 +142,8 @@ namespace YoketoruCS
             {
                 nextState = State.Clear;
             }
+
+            UpdatePlayer();
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
@@ -152,6 +154,14 @@ namespace YoketoruCS
         private void buttonTitle_Click(object sender, EventArgs e)
         {
             nextState = State.Title;
+        }
+
+        void UpdatePlayer()
+        {
+            var mpos = PointToClient(MousePosition);
+
+            chrLabels[PlayerIndex].Left = mpos.X - chrLabels[PlayerIndex].Width / 2;
+            chrLabels[PlayerIndex].Top = mpos.Y - chrLabels[PlayerIndex].Height / 2;
         }
     }
 }
