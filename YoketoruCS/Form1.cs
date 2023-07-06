@@ -114,6 +114,7 @@ namespace YoketoruCS
                     labelHighScore.Visible = false;
                     labelCopyright.Visible = false;
                     score = 0;
+                    itemCount = ItemMax;
                     timer = StartTimer;
                     for (int i = ObstacleIndex; i < vx.Length; i++)
                     {
@@ -215,8 +216,14 @@ namespace YoketoruCS
                     }
                     else
                     {
-                        // TODO アイテム
+                        // アイテム
                         AddScore(timer * PointRate);
+                        itemCount--;
+                        chrLabels[i].Visible = false;
+                        if (itemCount <= 0)
+                        {
+                            nextState = State.Clear;
+                        }
                     }
                 }
             }
