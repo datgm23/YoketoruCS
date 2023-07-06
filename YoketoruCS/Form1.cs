@@ -7,6 +7,16 @@ namespace YoketoruCS
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
 
+        static int PlayerMax => 1;
+        static int ItemMax => 3;
+        static int ObstacleMax => 3;
+        static int PlayerIndex => 0;
+        static int ObstacleIndex => PlayerIndex + PlayerMax;
+        static int ItemIndex => ObstacleIndex + ObstacleMax;
+        static int LabelMax => ItemIndex + ItemMax;
+        Label[] chrLabels = new Label[LabelMax];
+        int itemCount;
+        
         // —ñ‹“Žqenum
         enum State
         {
@@ -28,6 +38,32 @@ namespace YoketoruCS
         public Form1()
         {
             InitializeComponent();
+
+            for (int i = 0; i < LabelMax; i++)
+            {
+                chrLabels[i] = new Label();
+                chrLabels[i].AutoSize = true;
+                chrLabels[i].Top = i * 24;
+                Controls.Add(chrLabels[i]);
+                if (i < ObstacleIndex)
+                {
+                    chrLabels[i].Text = tempPlayer.Text;
+                    chrLabels[i].Font = tempPlayer.Font;
+                    chrLabels[i].ForeColor = tempPlayer.ForeColor; 
+                }
+                else if (i < ItemIndex)
+                {
+                    chrLabels[i].Text = tempObstacle.Text;
+                    chrLabels[i].Font = tempObstacle.Font;
+                    chrLabels[i].ForeColor = tempObstacle.ForeColor;
+                }
+                else
+                {
+                    chrLabels[i].Text = tempItem.Text;
+                    chrLabels[i].Font = tempItem.Font;
+                    chrLabels[i].ForeColor = tempItem.ForeColor;
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
