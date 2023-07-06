@@ -217,6 +217,12 @@ namespace YoketoruCS
         void UpdateTimer()
         {
             timer--;
+            if (timer <= 0)
+            {
+                timer = 0;
+                nextState = State.Gameover;
+            }
+
             labelTimer.Text = $"{timer:000}";
         }
     }
