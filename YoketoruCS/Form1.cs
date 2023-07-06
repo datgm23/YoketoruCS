@@ -202,6 +202,20 @@ namespace YoketoruCS
                 {
                     vy[i] = -Math.Abs(vy[i]);
                 }
+
+                // “–‚½‚è”»’è
+                if (IsHit(chrLabels[i]))
+                {
+                    if (IsObstacle(i))
+                    {
+                        // áŠQ•¨‚É‚Ô‚Â‚©‚Á‚½
+                        nextState = State.Gameover;
+                    }
+                    else
+                    {
+                        // TODO ƒAƒCƒeƒ€
+                    }
+                }
             }
         }
 
@@ -224,6 +238,22 @@ namespace YoketoruCS
             }
 
             labelTimer.Text = $"{timer:000}";
+        }
+
+        bool IsHit(Label target)
+        {
+            var mpos = PointToClient(MousePosition);
+
+            return ((mpos.X >= target.Left)
+                && (mpos.X < target.Right)
+                && (mpos.Y >= target.Top)
+                && (mpos.Y < target.Bottom));
+        }
+
+        bool IsObstacle(int index)
+        {
+            return (index >= ObstacleIndex)
+                && (index < ItemIndex);
         }
     }
 }
