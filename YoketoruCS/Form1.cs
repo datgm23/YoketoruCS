@@ -23,7 +23,8 @@ namespace YoketoruCS
         static Random random = new Random();
 
         static int SpeedMax = 10;
-        
+        static int PointRate => 100;
+
         // 列挙子enum
         enum State
         {
@@ -214,6 +215,7 @@ namespace YoketoruCS
                     else
                     {
                         // TODO アイテム
+                        AddScore(timer * PointRate);
                     }
                 }
             }
@@ -254,6 +256,21 @@ namespace YoketoruCS
         {
             return (index >= ObstacleIndex)
                 && (index < ItemIndex);
+        }
+
+        static int ScoreMax => 99999;
+
+        void AddScore(int point)
+        {
+            // 得点加算
+            score = Math.Min(score + point, ScoreMax);
+
+            UpdateScore();
+        }
+
+        void UpdateScore()
+        {
+            labelScore.Text = $"{score:00000}";
         }
     }
 }
