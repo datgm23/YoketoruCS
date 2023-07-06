@@ -7,6 +7,10 @@ namespace YoketoruCS
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
 
+        static int ScoreMax => 99999;
+        static int SpeedMax => 10;
+        static int PointRate => 100;
+
         static int PlayerMax => 1;
         static int ItemMax => 3;
         static int ObstacleMax => 3;
@@ -21,9 +25,6 @@ namespace YoketoruCS
         int[] vy = new int[LabelMax];
 
         static Random random = new Random();
-
-        static int SpeedMax = 10;
-        static int PointRate => 100;
 
         // —ñ‹“Žqenum
         enum State
@@ -257,8 +258,6 @@ namespace YoketoruCS
             return (index >= ObstacleIndex)
                 && (index < ItemIndex);
         }
-
-        static int ScoreMax => 99999;
 
         void AddScore(int point)
         {
