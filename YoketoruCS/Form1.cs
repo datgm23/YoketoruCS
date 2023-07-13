@@ -9,11 +9,11 @@ namespace YoketoruCS
 
         static int ScoreMax => 99999;
         static int SpeedMax => 10;
-        static int PointRate => 100;
+        static int PointRate => 50;
 
         static int PlayerMax => 1;
-        static int ItemMax => 3;
-        static int ObstacleMax => 3;
+        static int ItemMax => 8;
+        static int ObstacleMax => 8;
         static int PlayerIndex => 0;
         static int ObstacleIndex => PlayerIndex + PlayerMax;
         static int ItemIndex => ObstacleIndex + ObstacleMax;
