@@ -114,12 +114,14 @@ namespace YoketoruCS
                     labelHighScore.Visible = false;
                     labelCopyright.Visible = false;
                     score = 0;
+                    UpdateScore();
                     itemCount = ItemMax;
                     timer = StartTimer;
                     for (int i = ObstacleIndex; i < vx.Length; i++)
                     {
                         vx[i] = random.Next(-SpeedMax, SpeedMax + 1);
                         vy[i] = random.Next(-SpeedMax, SpeedMax + 1);
+                        chrLabels[i].Visible = true;
                     }
                     RandomObstacleAndItemPosition();
                     break;
@@ -186,6 +188,10 @@ namespace YoketoruCS
         {
             for (int i = ObstacleIndex; i < chrLabels.Length; i++)
             {
+                // ”ñ•\Ž¦‚Ì‚â‚Â‚Íˆ—‚µ‚È‚¢
+                if (!chrLabels[i].Visible) continue;
+                // if (chrLabels[i].Visible == false) continue;
+
                 chrLabels[i].Left += vx[i];
                 chrLabels[i].Top += vy[i];
 
