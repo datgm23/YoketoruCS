@@ -130,12 +130,14 @@ namespace YoketoruCS
                     labelGameover.Visible = true;
                     buttonTitle.Visible = true;
                     labelHighScore.Visible = true;
+                    UpdateHighScore();
                     break;
 
                 case State.Clear:
                     labelClear.Visible = true;
                     buttonTitle.Visible = true;
                     labelHighScore.Visible = true;
+                    UpdateHighScore();
                     break;
             }
         }
@@ -283,6 +285,12 @@ namespace YoketoruCS
         void UpdateScore()
         {
             labelScore.Text = $"{score:00000}";
+        }
+
+        void UpdateHighScore()
+        {
+            highScore = Math.Max(highScore, score);
+            labelHighScore.Text = $"High Score: {highScore:00000}";
         }
     }
 }
